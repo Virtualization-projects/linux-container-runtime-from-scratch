@@ -26,11 +26,7 @@ Containers are the tarballed images containing
           --mount-proc=$PWD/rootfs/proc \
           chroot rootfs /bin/bash
 
-
-    
     - Network interfaces : 
-    
-        
     
     - Mounted volumes
     
@@ -59,4 +55,11 @@ Further , for entering and seperating the "Process Namespace" :
         chroot $PWD/rootfs /bin/bash
     
     
+ - Step 4.: Mounting volumes :
  
+    nsenter --mount=/proc/$PID/ns/mnt \
+      mount --bind -o ro \
+      $PWD/readonlyfiles \
+      $PWD/rootfs/var/readonlyfiles
+      
+
