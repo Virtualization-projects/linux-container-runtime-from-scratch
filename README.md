@@ -55,11 +55,11 @@ Further , for entering and seperating the "Process Namespace" :
         chroot $PWD/rootfs /bin/bash
     
     
- - Step 4.: Mounting volumes :
+- Step 4.: Mounting volumes :
  
-    nsenter --mount=/proc/$PID/ns/mnt \
-      mount --bind -o ro \
-      $PWD/readonlyfiles \
-      $PWD/rootfs/var/readonlyfiles
+   - nsenter --mount=/proc/$PID/ns/mnt \
+        mount --bind -o ro \
+        $PWD/readonlyfiles \
+        $PWD/rootfs/var/readonlyfiles
       
 
